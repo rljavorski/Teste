@@ -1,0 +1,50 @@
+create table empregados (
+id_empregado integer primary key not null,
+cod_departamento integer not null,
+cod_emp_funcao integer not null,
+nm_empregado varchar(100),
+nm_funcao varchar(100),
+data_admissao date,
+salario numeric(92,5),
+comissao numeric(92,5),
+FOREIGN KEY (cod_departamento) REFERENCES departamentos (id_departamento));
+
+drop table empregados;
+
+create table departamentos (
+id_departamento integer primary key not null,
+nm_departamento varchar(100),
+local varchar(10));
+
+insert into departamentos(id_departamento,nm_departamento, local)
+values (1,'COMPRAS','COMPRA');
+insert into departamentos(id_departamento,nm_departamento, local)
+values (2,'VENDAS','VENDAS');
+insert into departamentos(id_departamento,nm_departamento, local)
+values (3,'TI','TI');
+insert into departamentos(id_departamento,nm_departamento, local)
+values (4,'FINANCEIRO','FINANCEIRO');
+insert into departamentos(id_departamento,nm_departamento, local)
+values (5,'CONTABILID','CONTABILID');
+
+insert into empregados(id_empregado,
+cod_departamento,cod_emp_funcao, nm_empregado,
+nm_funcao,data_admissao, salario,comissao)
+values (1,1,1,'Ricardo','Compras','20190101',1500.00,2.00);
+insert into empregados(id_empregado,
+cod_departamento,cod_emp_funcao, nm_empregado,
+nm_funcao,data_admissao, salario,comissao)
+values (2,1,1,'Leandro','Compras','20190622',1400.00,2.50);
+insert into empregados(id_empregado,
+cod_departamento,cod_emp_funcao, nm_empregado,
+nm_funcao,data_admissao, salario,comissao)
+values (3,1,1,'Gustavo','Supervisor','20180320',2400.00,3.50);
+insert into empregados(id_empregado,
+cod_departamento,cod_emp_funcao, nm_empregado,
+nm_funcao,data_admissao, salario,comissao)
+values (4,3,1,'Roberto','Programador','20210320',3500.00,0);
+insert into empregados(id_empregado,
+cod_departamento,cod_emp_funcao, nm_empregado,
+nm_funcao,data_admissao, salario,comissao)
+values (5,3,1,'Tiago','Programador','20200201',4000.00,0);
+
